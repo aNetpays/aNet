@@ -61,7 +61,7 @@ public class userData implements Serializable{
 		 */
 		
 		
-		/* here we fill that object (modify as per differences)*/
+		/* here we fill that object (modify as per differences) */
 		this.userName = userName;
 		Date today = new Date();
 		DateFormat todayFormat = DateFormat.getDateInstance();
