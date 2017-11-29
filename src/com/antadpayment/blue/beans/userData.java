@@ -54,15 +54,21 @@ public class userData implements Serializable{
 
 
 	/*This is the main constructor*/
-	public userData(String userName, String userPassMD5) {
+	public userData(String userName) {
+		/*
+		 * here we got to look for user into data base as per query
+		 * select * from user_data where user like 'userName%';
+		 */
+		
+		
+		/* here we fill that object (modify as per differences)
 		this.userName = userName;
-		this.userPassMD5 = userPassMD5;
 		Date today = new Date();
 		DateFormat todayFormat = DateFormat.getDateInstance();
 		logDate = todayFormat.format(today);
 		LocalDateTime now = LocalDateTime.now();
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
-		logTime = dtf.format(now); 
+		logTime = dtf.format(now);*/ 
 	}
 
 	@Override

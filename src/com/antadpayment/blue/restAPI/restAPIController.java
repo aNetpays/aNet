@@ -27,18 +27,14 @@ public class restAPIController {
 	@Path("/Login")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response logIn(@QueryParam("user") String user, @QueryParam("pass") String pass) {		
+	public Response logIn(@QueryParam("user") String user) {		
 		
 		if(user.equals("")) {
 			return Response.status(Status.NOT_ACCEPTABLE)
 					.entity("{'message':'not ok, user was not provided'}" ).build();
 		}
-		if(pass.equals("")) {
-			return Response.status(Status.NOT_ACCEPTABLE)
-					.entity("{'message':'not ok, password was not provided'}" ).build();
-		}
-
-		newUsrLog = new userData(user, pass);
+		newUsrLog = new userData(user);
+		//here we return
 		logInf.info("here the new user : " + newUsrLog.toString());
 		return Response.ok(newUsrLog.toString()).build();
 	}
