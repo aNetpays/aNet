@@ -34,7 +34,7 @@ public class restAPIController {
 					.entity("{'message':'not ok, user was not provided'}" ).build();
 		}
 		newUsrLog = new userData(user);
-		//here we return
+		//here we return that filled object
 		logInf.info("here the new user : " + newUsrLog.toString());
 		return Response.ok(newUsrLog.toString()).build();
 	}

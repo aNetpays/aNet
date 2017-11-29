@@ -61,14 +61,14 @@ public class userData implements Serializable{
 		 */
 		
 		
-		/* here we fill that object (modify as per differences)
+		/* here we fill that object (modify as per differences)*/
 		this.userName = userName;
 		Date today = new Date();
 		DateFormat todayFormat = DateFormat.getDateInstance();
 		logDate = todayFormat.format(today);
 		LocalDateTime now = LocalDateTime.now();
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
-		logTime = dtf.format(now);*/ 
+		logTime = dtf.format(now);
 	}
 
 	@Override
