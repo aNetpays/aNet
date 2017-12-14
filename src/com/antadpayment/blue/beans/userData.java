@@ -12,8 +12,17 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class userData implements Serializable{
 	private static final long serialVersionUID = 1L;
-	private String userName, userPassMD5, logDate, logTime;
+	private String id, userName, email, name, lastName, dob_day, dob_month, dob_year, logDate, logTime;
+	private boolean complete = false;
 	
+	public boolean isComplete() {
+		return complete;
+	}
+
+	public void setComplete(boolean complete) {
+		this.complete = complete;
+	}
+
 	public String getLogDate() {
 		return logDate;
 	}
@@ -22,8 +31,16 @@ public class userData implements Serializable{
 		this.logDate = logDate;
 	}
 
-	public userData() {
-	
+	public userData(String idF, String userNameF, String emailF, String nameF, 
+			String lastNameF, String dob_dayF, String dob_monthF, String dob_yearF) {
+		setId(idF);
+		setUserName(userNameF);
+		setEmail(emailF);
+		setName(lastNameF);
+		setLastName(lastNameF);
+		setDob_day(dob_dayF);
+		setDob_month(dob_monthF);
+		setDob_year(dob_yearF);
 	}
 	
 	@XmlElement
@@ -33,14 +50,6 @@ public class userData implements Serializable{
 
 	public void setUserName(String userName) {
 		this.userName = userName;
-	}
-	@XmlElement
-	public String getUserPassMD5() {
-		return userPassMD5;
-	}
-
-	public void setUserPassMD5(String userPassMD5) {
-		this.userPassMD5 = userPassMD5;
 	}
 
 	@XmlElement
@@ -77,7 +86,6 @@ public class userData implements Serializable{
 		int result = 1;
 		result = prime * result + ((logTime == null) ? 0 : logTime.hashCode());
 		result = prime * result + ((userName == null) ? 0 : userName.hashCode());
-		result = prime * result + ((userPassMD5 == null) ? 0 : userPassMD5.hashCode());
 		return result;
 	}
 
@@ -100,18 +108,74 @@ public class userData implements Serializable{
 				return false;
 		} else if (!userName.equals(other.userName))
 			return false;
-		if (userPassMD5 == null) {
-			if (other.userPassMD5 != null)
-				return false;
-		} else if (!userPassMD5.equals(other.userPassMD5))
-			return false;
 		return true;
 	}
 	
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getDob_day() {
+		return dob_day;
+	}
+
+	public void setDob_day(String dob_day) {
+		this.dob_day = dob_day;
+	}
+
+	public String getDob_month() {
+		return dob_month;
+	}
+
+	public void setDob_month(String dob_month) {
+		this.dob_month = dob_month;
+	}
+
+	public String getDob_year() {
+		return dob_year;
+	}
+
+	public void setDob_year(String dob_year) {
+		this.dob_year = dob_year;
+	}
+
 	public String toString() {
 		return "userData{"
-				+ "userName='" + getUserName() + '\''
-				+", userPassMD5='" + getUserPassMD5() + '\'' 
+				+ "id ='" +getId() + '\''
+				+ ", userName='" + getUserName() + '\''
+				+ ", Name='" + getName() + '\''
+				+ ", lastName='" + getLastName() + '\''
+				+ ", dob_day='" + getDob_day() + '\''
+				+ ", dob_month='" + getDob_month() + '\''
+				+ ", dob_year='" + getDob_year() + '\''
 				+", logDate='" + getLogDate() + '\''
 				+", logTime='" + getLogTime() + '\''
 				+ "}";
